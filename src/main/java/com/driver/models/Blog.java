@@ -21,7 +21,7 @@ public class Blog {
     private String content;
 
     @CreationTimestamp
-    private Date createdOn;
+    private Date pubDate;
 
     //mapping to User(child --> parent)
     @ManyToOne
@@ -77,12 +77,12 @@ public class Blog {
         this.content = content;
     }
 
-    public Date getCreatedOn() {
-        return createdOn;
+    public Date getPubDate() {
+        return pubDate;
     }
 
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
+    public void setPubDate(Date pubDate) {
+        this.pubDate = pubDate;
     }
 
     public User getUser() {

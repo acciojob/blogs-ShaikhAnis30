@@ -43,7 +43,7 @@ public class ImageService {
     public int countImagesInScreen(Integer id, String screenDimensions) throws NoSuchElementException {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
         Image image = imageRepository2.findById(id).get();
-        String dimensionOfImage = image.getDimension();//is dimension wale images I have to count
+        String dimensionOfImage = image.getDimensions();//is dimension wale images I have to count
 
 
         //dimension = Length x Breadth
