@@ -26,18 +26,15 @@ public class ImageService {
         imageList.add(image);
         blog.setImageList(imageList);
 
-//        image.setBlog(blog);  //check if error comes
+        image.setBlog(blog);  //check if error comes
 
-        //blogRepository2.save(blog); //by cascading effect image will be automatically saved
+        blogRepository2.save(blog); //by cascading effect image will be automatically saved
 
         return image;
     }
 
-    public void deleteImage(Integer id) throws Exception {
-        Image image = imageRepository2.findById(id).get();
-
-        if(id > 0) imageRepository2.deleteById(id);
-        else throw new Exception("Id is Invalid");
+    public void deleteImage(Integer id) {
+        imageRepository2.deleteById(id);
     }
 
     public int countImagesInScreen(Integer id, String screenDimensions)  {

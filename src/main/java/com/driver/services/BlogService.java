@@ -25,6 +25,7 @@ public class BlogService {
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
         //create a blog at the current time
         Blog blog = new Blog(title, content);
+        blog.setPubDate(new Date()); //current time
 
         User user = userRepository1.findById(userId).get();
         //between blog to user
@@ -33,7 +34,7 @@ public class BlogService {
         user.setBlogList(blogList);
 
         //foreign key attribute
-        blog.setUser(user); //is user ka hai ye newly created blog --> Linked
+        //blog.setUser(user); //is user ka hai ye newly created blog --> Linked
 
         userRepository1.save(user); //by cascading effect blog will be automatically saved
 

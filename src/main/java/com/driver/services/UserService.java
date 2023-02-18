@@ -23,12 +23,8 @@ public class UserService {
         return user;
     }
 
-    public void deleteUser(int userId) throws Exception {
-        if(userId > 0) {
-            userRepository3.deleteById(userId);
-        }else {
-            throw new Exception("Id is not valid");
-        }
+    public void deleteUser(int userId) {
+        userRepository3.deleteById(userId);
     }
 
     public User updateUser(Integer id, String password) {
@@ -41,6 +37,7 @@ public class UserService {
 
         //now set password
         user.setPassword(password);
+        userRepository3.save(user);
         return user;
     }
 }
