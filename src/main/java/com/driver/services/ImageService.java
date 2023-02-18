@@ -47,12 +47,19 @@ public class ImageService {
         Image image = imageRepository2.findById(id).get();
         String dimensionOfImage = image.getDimensions();//is dimension wale images I have to count
 
-        int count1 = Integer.parseInt(screenDimensions.substring(0,1)) /
-                     Integer.parseInt(dimensionOfImage.substring(0,1));
-        int count2 = Integer.parseInt(screenDimensions.substring(2)) /
-                     Integer.parseInt(dimensionOfImage.substring(2));
+//        int count1 = Integer.parseInt(screenDimensions.substring(0,1)) /
+//                     Integer.parseInt(dimensionOfImage.substring(0,1));
+//        int count2 = Integer.parseInt(screenDimensions.substring(2)) /
+//                     Integer.parseInt(dimensionOfImage.substring(2));
+//
+//        return count1 * count2;
 
-        return count1 * count2;
+        String[] screen=screenDimensions.split("X");
+        String[] imageDimension=image.getDimensions().split("X");
+        int count=(Integer.parseInt(screen[0])/Integer.parseInt(imageDimension[0]))*
+                  (Integer.parseInt(screen[1])/Integer.parseInt(imageDimension[1]));
+
+        return count;
 
         //dimension = Length x Breadth
 //        int totalScreenDimension = Integer.parseInt(screenDimensions.substring(0,1)) *
