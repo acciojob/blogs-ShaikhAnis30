@@ -40,21 +40,21 @@ public class ImageService {
         else throw new Exception("Id is Invalid");
     }
 
-    public int countImagesInScreen(Integer id, String screenDimensions) throws NoSuchElementException {
+    public int countImagesInScreen(Integer id, String screenDimensions)  {
         //Find the number of images of given dimensions that can fit in a screen having `screenDimensions`
         Image image = imageRepository2.findById(id).get();
         String dimensionOfImage = image.getDimensions();//is dimension wale images I have to count
 
 
         //dimension = Length x Breadth
-//        int totalScreenDimension = Integer.parseInt(screenDimensions.substring(0,1)) *
-//                                   Integer.parseInt(screenDimensions.substring(2));
-//
-//        int currentImageDimension = Integer.parseInt(dimensionOfImage.substring(0,1)) *
-//                                    Integer.parseInt(dimensionOfImage.substring(2));
+        int totalScreenDimension = Integer.parseInt(screenDimensions.substring(0,1)) *
+                                   Integer.parseInt(screenDimensions.substring(2));
 
-        int totalScreenDimension = Integer.parseInt(screenDimensions);
-        int currentImageDimension = Integer.parseInt(dimensionOfImage);
+        int currentImageDimension = Integer.parseInt(dimensionOfImage.substring(0,1)) *
+                                    Integer.parseInt(dimensionOfImage.substring(2));
+
+//        int totalScreenDimension = Integer.parseInt(screenDimensions);
+//        int currentImageDimension = Integer.parseInt(dimensionOfImage);
 
         int imageCount = 0;
         int sum = 0;

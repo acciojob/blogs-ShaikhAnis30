@@ -14,7 +14,7 @@ public class UserService {
     @Autowired
     UserRepository userRepository3;
 
-    public User createUser(String username, String password){
+    public User createUser(String username, String password) {
         User user = new User(username,password);
         //cannot do anything of list of blogs right now
 
@@ -31,7 +31,7 @@ public class UserService {
         }
     }
 
-    public User updateUser(Integer id, String password) throws NoSuchElementException {
+    public User updateUser(Integer id, String password) {
         User user = userRepository3.findById(id).get();
         //set basic attributes
         user.setUsername(user.getUsername());

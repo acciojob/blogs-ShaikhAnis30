@@ -22,7 +22,7 @@ public class BlogService {
     @Autowired
     UserRepository userRepository1;
 
-    public Blog createAndReturnBlog(Integer userId, String title, String content) throws NoSuchElementException {
+    public Blog createAndReturnBlog(Integer userId, String title, String content) {
         //create a blog at the current time
         Blog blog = new Blog(title, content);
 
@@ -40,7 +40,7 @@ public class BlogService {
         return blog;
     }
 
-    public void deleteBlog(int blogId) throws NoSuchElementException {
+    public void deleteBlog(int blogId) {
         //delete blog and corresponding images
         Blog blog = blogRepository1.findById(blogId).get();
 
