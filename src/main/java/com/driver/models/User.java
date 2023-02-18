@@ -33,12 +33,6 @@ public class User {
         this.lastname = "test";
     }
 
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-        this.firstname = "test";
-        this.lastname = "test";
-    }
 
     public int getId() {
         return id;

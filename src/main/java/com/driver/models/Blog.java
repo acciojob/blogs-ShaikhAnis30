@@ -40,11 +40,6 @@ public class Blog {
 
     }
 
-    public Blog(String title, String content) {
-        this.title = title;
-        this.content = content;
-    }
-
     public List<Image> getImageList() {
         return imageList;
     }

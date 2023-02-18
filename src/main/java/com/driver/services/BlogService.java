@@ -24,8 +24,12 @@ public class BlogService {
 
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
         //create a blog at the current time
-        Blog blog = new Blog(title, content);
-        blog.setPubDate(new Date()); //current time
+        Blog blog = new Blog();
+        //set attributes
+        blog.setId(blog.getId());
+        blog.setTitle(title);
+        blog.setContent(content);
+        blog.setPubDate(new Date()); //today's date
 
         User user = userRepository1.findById(userId).get();
         //between blog to user
@@ -34,7 +38,7 @@ public class BlogService {
         user.setBlogList(blogList);
 
         //foreign key attribute
-        //blog.setUser(user); //is user ka hai ye newly created blog --> Linked
+        blog.setUser(user); //is user ka hai ye newly created blog --> Linked
 
         userRepository1.save(user); //by cascading effect blog will be automatically saved
 
@@ -43,18 +47,18 @@ public class BlogService {
 
     public void deleteBlog(int blogId) {
         //delete blog and corresponding images
-        Blog blog = blogRepository1.findById(blogId).get();
-
-        //delete all images associated with this blog
-        List<Image> imageList = blog.getImageList();
-        imageList.clear();
-        blog.setImageList(imageList);
-
-        //also we have to delete this blog from list of blogs of user
-        User user = blog.getUser();
-        List<Blog> blogList = user.getBlogList();
-        blogList.remove(blog);
-        user.setBlogList(blogList); // no need
+//        Blog blog = blogRepository1.findById(blogId).get();
+//
+//        //delete all images associated with this blog
+//        List<Image> imageList = blog.getImageList();
+//        imageList.clear();
+//        blog.setImageList(imageList);
+//
+//        //also we have to delete this blog from list of blogs of user
+//        User user = blog.getUser();
+//        List<Blog> blogList = user.getBlogList();
+//        blogList.remove(blog);
+//        user.setBlogList(blogList); // no need
 
         blogRepository1.deleteById(blogId);
     }

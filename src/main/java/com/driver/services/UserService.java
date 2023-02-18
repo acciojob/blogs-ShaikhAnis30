@@ -15,7 +15,16 @@ public class UserService {
     UserRepository userRepository3;
 
     public User createUser(String username, String password) {
-        User user = new User(username,password);
+        User user = new User();
+        user.setId(user.getId());
+        user.setFirstname(user.getFirstname());
+        user.setLastname(user.getLastname());
+
+        //now set username and password
+        user.setUsername(username);
+        user.setPassword(password);
+
+
         //cannot do anything of list of blogs right now
 
         //now save user

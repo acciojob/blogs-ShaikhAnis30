@@ -18,7 +18,12 @@ public class ImageService {
 
     public Image addImage(Integer blogId, String description, String dimensions){
         //add an image to the blog
-        Image image = new Image(description, dimensions);
+        Image image = new Image();
+        //set attributes
+        image.setId(image.getId());
+        image.setDescription(description);
+        image.setDimensions(dimensions);
+        //image created
 
         Blog blog = blogRepository2.findById(blogId).get();
 
@@ -42,26 +47,32 @@ public class ImageService {
         Image image = imageRepository2.findById(id).get();
         String dimensionOfImage = image.getDimensions();//is dimension wale images I have to count
 
+        int count1 = Integer.parseInt(screenDimensions.substring(0,1)) /
+                     Integer.parseInt(dimensionOfImage.substring(0,1));
+        int count2 = Integer.parseInt(screenDimensions.substring(2)) /
+                     Integer.parseInt(dimensionOfImage.substring(2));
+
+        return count1 * count2;
 
         //dimension = Length x Breadth
-        int totalScreenDimension = Integer.parseInt(screenDimensions.substring(0,1)) *
-                                   Integer.parseInt(screenDimensions.substring(2));
-
-        int currentImageDimension = Integer.parseInt(dimensionOfImage.substring(0,1)) *
-                                    Integer.parseInt(dimensionOfImage.substring(2));
-
-//        int totalScreenDimension = Integer.parseInt(screenDimensions);
-//        int currentImageDimension = Integer.parseInt(dimensionOfImage);
-
-        int imageCount = 0;
-        int sum = 0;
-        for (int i = 0; i < totalScreenDimension/2; i++) {
-            sum += currentImageDimension;
-
-            if(sum <= totalScreenDimension) imageCount++;
-            else break;
-        }
-
-        return imageCount;
+//        int totalScreenDimension = Integer.parseInt(screenDimensions.substring(0,1)) *
+//                                   Integer.parseInt(screenDimensions.substring(2));
+//
+//        int currentImageDimension = Integer.parseInt(dimensionOfImage.substring(0,1)) *
+//                                    Integer.parseInt(dimensionOfImage.substring(2));
+//
+////        int totalScreenDimension = Integer.parseInt(screenDimensions);
+////        int currentImageDimension = Integer.parseInt(dimensionOfImage);
+//
+//        int imageCount = 0;
+//        int sum = 0;
+//        for (int i = 0; i < totalScreenDimension/2; i++) {
+//            sum += currentImageDimension;
+//
+//            if(sum <= totalScreenDimension) imageCount++;
+//            else break;
+//        }
+//
+//        return imageCount;
     }
 }
