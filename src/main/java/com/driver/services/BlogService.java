@@ -26,7 +26,7 @@ public class BlogService {
         //create a blog at the current time
         Blog blog = new Blog();
         //set attributes
-        blog.setId(blog.getId());
+//        blog.setId(blog.getId());
         blog.setTitle(title);
         blog.setContent(content);
         blog.setPubDate(new Date()); //today's date

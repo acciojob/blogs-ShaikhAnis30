@@ -16,7 +16,7 @@ public class UserService {
 
     public User createUser(String username, String password) {
         User user = new User();
-        user.setId(user.getId());
+//        user.setId(user.getId());
         user.setFirstname(user.getFirstname());
         user.setLastname(user.getLastname());
 

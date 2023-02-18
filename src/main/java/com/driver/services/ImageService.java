@@ -20,7 +20,7 @@ public class ImageService {
         //add an image to the blog
         Image image = new Image();
         //set attributes
-        image.setId(image.getId());
+//        image.setId(image.getId());
         image.setDescription(description);
         image.setDimensions(dimensions);
         //image created
