@@ -52,7 +52,7 @@ public class ImageService {
 
         int breadthByBreadth = Integer.parseInt(totalScreen[1]) / Integer.parseInt(givenImage[1]);
 
-        return lengthByLength + breadthByBreadth;
+        return lengthByLength * breadthByBreadth;
 
         //dimension = Length x Breadth
         //this will fail if length and breadth have digits more than 1
@@ -66,5 +66,7 @@ public class ImageService {
 
         return imageCount;
          **/
+
+
     }
 }
