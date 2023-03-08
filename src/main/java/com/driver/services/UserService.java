@@ -16,10 +16,6 @@ public class UserService {
 
     public User createUser(String username, String password) {
         User user = new User();
-        //user.setFirstname(user.getFirstname());
-        //user.setLastname(user.getLastname());
-
-        //now set username and password
         user.setUsername(username);
         user.setPassword(password);
 
@@ -36,13 +32,6 @@ public class UserService {
 
     public User updateUser(Integer id, String password) {
         User user = userRepository3.findById(id).get();
-        //set basic attributes
-        //delete these if no need
-        //user.setUsername(user.getUsername());
-        //user.setFirstname(user.getFirstname());
-        //user.setLastname(user.getLastname());
-        //user.setBlogList(user.getBlogList());
-
         //now set password
         user.setPassword(password);
         userRepository3.save(user);

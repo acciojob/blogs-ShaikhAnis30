@@ -20,18 +20,16 @@ public class ImageService {
         //add an image to the blog
         Image image = new Image();
         //set attributes
-//        image.setId(image.getId());
         image.setDescription(description);
         image.setDimensions(dimensions);
         //image created
 
         Blog blog = blogRepository2.findById(blogId).get();
+        image.setBlog(blog);
 
         List<Image> imageList = blog.getImageList();
         imageList.add(image);
         blog.setImageList(imageList);
-
-        image.setBlog(blog);  //check if error comes
 
         blogRepository2.save(blog); //by cascading effect image will be automatically saved
 
@@ -54,32 +52,25 @@ public class ImageService {
 //
 //        return count1 * count2;
 
-        String[] screen=screenDimensions.split("X");
-        String[] imageDimension=image.getDimensions().split("X");
-        int count=(Integer.parseInt(screen[0])/Integer.parseInt(imageDimension[0]))*
-                  (Integer.parseInt(screen[1])/Integer.parseInt(imageDimension[1]));
-
-        return count;
+//        String[] screen=screenDimensions.split("X");
+//        String[] imageDimension=image.getDimensions().split("X");
+//        int count=(Integer.parseInt(screen[0])/Integer.parseInt(imageDimension[0]))*
+//                  (Integer.parseInt(screen[1])/Integer.parseInt(imageDimension[1]));
+//
+//        return count;
 
         //dimension = Length x Breadth
-//        int totalScreenDimension = Integer.parseInt(screenDimensions.substring(0,1)) *
-//                                   Integer.parseInt(screenDimensions.substring(2));
-//
-//        int currentImageDimension = Integer.parseInt(dimensionOfImage.substring(0,1)) *
-//                                    Integer.parseInt(dimensionOfImage.substring(2));
-//
-////        int totalScreenDimension = Integer.parseInt(screenDimensions);
-////        int currentImageDimension = Integer.parseInt(dimensionOfImage);
-//
-//        int imageCount = 0;
-//        int sum = 0;
-//        for (int i = 0; i < totalScreenDimension/2; i++) {
-//            sum += currentImageDimension;
-//
-//            if(sum <= totalScreenDimension) imageCount++;
-//            else break;
-//        }
-//
-//        return imageCount;
+        int totalScreenDimension = Integer.parseInt(screenDimensions.substring(0,1)) *
+                                   Integer.parseInt(screenDimensions.substring(2));
+
+        int currentImageDimension = Integer.parseInt(dimensionOfImage.substring(0,1)) *
+                                    Integer.parseInt(dimensionOfImage.substring(2));
+
+//        int totalScreenDimension = Integer.parseInt(screenDimensions);
+//        int currentImageDimension = Integer.parseInt(dimensionOfImage);
+
+        int imageCount = totalScreenDimension/currentImageDimension;
+
+        return imageCount;
     }
 }
