@@ -60,16 +60,13 @@ public class ImageService {
 //        return count;
 
         //dimension = Length x Breadth
-        int totalScreenDimension = Integer.parseInt(screenDimensions.substring(0,1)) *
-                                   Integer.parseInt(screenDimensions.substring(2));
+        int lengthByLength = Integer.parseInt(screenDimensions.substring(0,1)) *
+                                   Integer.parseInt(dimensionOfImage.substring(0,1));
 
-        int currentImageDimension = Integer.parseInt(dimensionOfImage.substring(0,1)) *
+        int breadthBybBreadth = Integer.parseInt(screenDimensions.substring(2)) *
                                     Integer.parseInt(dimensionOfImage.substring(2));
 
-//        int totalScreenDimension = Integer.parseInt(screenDimensions);
-//        int currentImageDimension = Integer.parseInt(dimensionOfImage);
-
-        int imageCount = totalScreenDimension/currentImageDimension;
+        int imageCount = lengthByLength + breadthBybBreadth;
 
         return imageCount;
     }
