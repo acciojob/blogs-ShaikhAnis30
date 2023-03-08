@@ -26,7 +26,6 @@ public class BlogService {
         //create a blog at the current time
         Blog blog = new Blog();
         //set attributes
-//        blog.setId(blog.getId());
         blog.setTitle(title);
         blog.setContent(content);
         blog.setPubDate(new Date()); //today's date
@@ -47,19 +46,6 @@ public class BlogService {
 
     public void deleteBlog(int blogId) {
         //delete blog and corresponding images
-//        Blog blog = blogRepository1.findById(blogId).get();
-//
-//        //delete all images associated with this blog
-//        List<Image> imageList = blog.getImageList();
-//        imageList.clear();
-//        blog.setImageList(imageList);
-//
-//        //also we have to delete this blog from list of blogs of user
-//        User user = blog.getUser();
-//        List<Blog> blogList = user.getBlogList();
-//        blogList.remove(blog);
-//        user.setBlogList(blogList); // no need
-
         blogRepository1.deleteById(blogId);
     }
 }

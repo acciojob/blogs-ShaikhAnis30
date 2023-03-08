@@ -16,14 +16,12 @@ public class UserService {
 
     public User createUser(String username, String password) {
         User user = new User();
-//        user.setId(user.getId());
-        user.setFirstname(user.getFirstname());
-        user.setLastname(user.getLastname());
+        //user.setFirstname(user.getFirstname());
+        //user.setLastname(user.getLastname());
 
         //now set username and password
         user.setUsername(username);
         user.setPassword(password);
-
 
         //cannot do anything of list of blogs right now
 
@@ -40,10 +38,10 @@ public class UserService {
         User user = userRepository3.findById(id).get();
         //set basic attributes
         //delete these if no need
-        user.setUsername(user.getUsername());
-        user.setFirstname(user.getFirstname());
-        user.setLastname(user.getLastname());
-        user.setBlogList(user.getBlogList());
+        //user.setUsername(user.getUsername());
+        //user.setFirstname(user.getFirstname());
+        //user.setLastname(user.getLastname());
+        //user.setBlogList(user.getBlogList());
 
         //now set password
         user.setPassword(password);
