@@ -45,22 +45,18 @@ public class ImageService {
         Image image = imageRepository2.findById(id).get();
         String dimensionOfImage = image.getDimensions();//is dimension wale images I have to count
 
-//        int count1 = Integer.parseInt(screenDimensions.substring(0,1)) /
-//                     Integer.parseInt(dimensionOfImage.substring(0,1));
-//        int count2 = Integer.parseInt(screenDimensions.substring(2)) /
-//                     Integer.parseInt(dimensionOfImage.substring(2));
-//
-//        return count1 * count2;
+        //dimension = Length x Breadth
+        String[] totalScreen = screenDimensions.split("X");
+        String[] givenImage = dimensionOfImage.split("X");
+        int lengthByLength = Integer.parseInt(totalScreen[0]) / Integer.parseInt(givenImage[0]);
 
-//        String[] screen=screenDimensions.split("X");
-//        String[] imageDimension=image.getDimensions().split("X");
-//        int count=(Integer.parseInt(screen[0])/Integer.parseInt(imageDimension[0]))*
-//                  (Integer.parseInt(screen[1])/Integer.parseInt(imageDimension[1]));
-//
-//        return count;
+        int breadthByBreadth = Integer.parseInt(totalScreen[1]) / Integer.parseInt(givenImage[1]);
+
+        return lengthByLength + breadthByBreadth;
 
         //dimension = Length x Breadth
-        int lengthByLength = Integer.parseInt(screenDimensions.substring(0,1)) *
+        //this will fail if length and breadth have digits more than 1
+        /**int lengthByLength = Integer.parseInt(screenDimensions.substring(0,1)) *
                                    Integer.parseInt(dimensionOfImage.substring(0,1));
 
         int breadthBybBreadth = Integer.parseInt(screenDimensions.substring(2)) *
@@ -69,5 +65,6 @@ public class ImageService {
         int imageCount = lengthByLength + breadthBybBreadth;
 
         return imageCount;
+         **/
     }
 }
